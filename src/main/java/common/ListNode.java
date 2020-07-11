@@ -7,8 +7,36 @@ package common;
  * @date 2020/7/10 7:40 下午
  */
 public class ListNode {
-
+    /**
+     * 数据
+     */
     private int data;
-    private
+    /**
+     * 指向下一个的指针
+     */
+    private ListNode next;
 
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public ListNode getNext() {
+        return next;
+    }
+
+    public void setNext(ListNode next) {
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "data=" + data +
+                ", next=" + next +
+                '}';
+    }
 }
