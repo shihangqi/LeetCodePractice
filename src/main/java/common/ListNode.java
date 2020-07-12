@@ -10,11 +10,11 @@ public class ListNode {
     /**
      * 数据
      */
-    private int data;
+    public int data;
     /**
      * 指向下一个的指针
      */
-    private ListNode next;
+    public ListNode next;
 
     public int getData() {
         return data;
