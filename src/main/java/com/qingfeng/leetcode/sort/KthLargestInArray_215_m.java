@@ -2,8 +2,9 @@ package com.qingfeng.leetcode.sort;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 /**
@@ -31,7 +32,9 @@ public class KthLargestInArray_215_m {
     //堆 ：时间复杂度 O(NlogK)，空间复杂度 O(K)。
     public int process2(int[] nums, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>();//默认是个小顶堆
-        PriorityQueue<Integer> heap1 = new PriorityQueue<>((num1,num2)->{return num2-num1;});//大顶堆
+        PriorityQueue<Integer> heap1 = new PriorityQueue<>((num1, num2) -> {
+            return num2 - num1;
+        });//大顶堆
         for (int num : nums) {
             heap.add(num);
             if (heap.size() > k) {
@@ -70,5 +73,16 @@ public class KthLargestInArray_215_m {
         nums[l] = pivot;
         return l;
     }
+
+    public int[] quickSort(int[] nums, int l, int h) {
+        while (l < h) {
+            //partition是划分操作
+            int pivotpos = partition(nums, l, h);
+            quickSort(nums, l, pivotpos - 1);
+            quickSort(nums, pivotpos + 1, h);
+        }
+        return nums;
+    }
+
 
 }
