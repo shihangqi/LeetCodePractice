@@ -3,6 +3,9 @@ package com.qingfeng.leetcode.test;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -15,15 +18,19 @@ public class test {
 
 
     public static void main(String[] args) {
-//        String a = "abc";
-//        String b = new String("abc");
-//        test(a,b);
-        testFailFast();
+        String a = "abc";
+        String b = new String("abc");
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
+        test(a,b);
+//        testFailFast();
     }
     public static void test(String a,String b){
         a = b;
-        System.out.println(a == b);
-        System.out.println(a.equals(b));
+        System.out.println(a==b);
+        System.out.println(b.equals(b));
+//        System.out.println(a == b);
+//        System.out.println(a.equals(b));
 
     }
 
